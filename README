@@ -23,7 +23,11 @@ targets in the generated "tobuild" subdirectory.  Once a package has been built,
 a small file is created into the "built" subdirectory in order to tell Make not
 to build it again.
 
-Every time you run './configure', those two subdirectories are reset, so you
+For packages listed by xbps-checkvers as removed, Make removes binary packages
+and unindexes them. Directiories "toremove" and "removed" are used analogically
+to "tobuild" and "built".
+
+Every time you run './configure', those four subdirectories are reset, so you
 cannot interrupt a build, run './configure', and resume properly.  In order to
 resume a build in these kinds of circumstances, you must completely remove
 'repo-checkvers.txt', so that ./configure can detect what has already been
